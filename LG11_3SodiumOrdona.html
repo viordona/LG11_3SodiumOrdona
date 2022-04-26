@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> LG11_3SodiumOrdona </title>
+<meta charset="UTF-8">
+<meta name="author" content="ORDONA, Victoria Alexandra I.">
+<meta name="revised" content="26-04-2022">
+</head>
+<body>
+
+<h2> Welcome to our learning website! Please fill out the form below before proceeding. </h2>
+
+<form  onsubmit = "return summary();" onreset = "resetInformation();">
+	<fieldset form = "SignUp" style = "width: 775px;">
+	<legend style = "font-weight: bold;"> Sign-up Sheet </legend> 
+	
+	<p> Gender: </p>
+	<input type = "radio" id = "gender" name = "gender" value = "Male">
+	<label for = "male"> Male </label> <br>
+	<input type = "radio" id = "gender" name = "gender" value = "Female">
+	<label for = "female"> Female </label> <br>
+	<input type = "radio" id = "gender" name = "gender" value = "Prefer Not to Mention" checked>
+	<label for = "notMentioned"> Prefer not to Mention </label> <br> <br>
+	
+	<label for = "birthName"> Name: </label>
+	<input onblur = "changeToRed(this)" onfocus = "changeToGreen(this)" type = "text" id = "birthName" name = "birthName" > <br> <br>
+	
+	<label for = "username"> Preferred Username: </label>
+	<input onblur = "changeToRed(this)" onfocus = "changeToGreen(this)" type = "text" id = "username" name = "username"> <br> <br>
+	
+	<label for = "pWord"> Password: </label>
+	<input onblur = "changeToRed(this)" onfocus = "changeToGreen(this)" type = "password" id = "pWord" name = "pWord"> <br> <br>
+	
+	<label for = "email"> Email: </label>
+	<input onblur = "changeToRed(this)" onfocus = "changeToGreen(this)" type = "email" id = "email" name = "email"> <br> <br>
+	
+	<label for = "address"> Address: </label>
+	<input onblur = "changeToRed(this)" onfocus = "changeToGreen(this)" type = "text" id = "address" name = "address"> <br> <br>
+	
+	<label for = "interests"> Write a short paragraph of your interests: </label> <br> <br>
+	<textarea onblur = "changeToRed(this)" onfocus = "changeToGreen(this)" id = "interests" name = "interests" rows = "5" cols = "60"></textarea> <br> <br>
+	
+	<input type = "submit" value = "Submit">
+	<input type = "reset" value = "Clear"> 
+	</fieldset>
+</form> <br>
+
+	<div id = "summary" style = "width: 782px; border: 1px solid black; padding: 10px;"> 
+	<h3> Your Information Summary: </h3>
+	<p> Name: <span id = "birthNameInfo"> </span> </p> 
+	<p> Preferred Username: <span id = "usernameInfo"> </span> </p> 
+	<p> Gender: <span id = "genderInfo"> </span> </p>
+	<p> Password: <span id = "pWordInfo"> </span> </p>
+	<p> Email: <span id = "emailInfo"> </span> </p>
+	<p> Address: <span id = "addressInfo"> </span> </p>
+	<p> Your Interests: <br> <span id = "interestsInfo"> </span> </p>
+
+<script>
+
+function changeToRed(formElement) {
+	let input = formElement.value;
+	if (input.length == "") {
+	formElement.style.borderColor = "red";
+	}
+}
+
+function changeToGreen(formElement) {
+	formElement.style.borderColor = "green";
+}
+
+function summary() {
+	let a = document.getElementById("birthName").value;
+	let b = document.getElementById("username").value;
+	let c = document.querySelector('input[name="gender"]:checked').value;
+	let d = document.getElementById("pWord").value;
+	let e = document.getElementById("email").value;
+	let f = document.getElementById("address").value;
+	let g = document.getElementById("interests").value;
+
+	document.getElementById("birthNameInfo").innerHTML = a;
+	document.getElementById("usernameInfo").innerHTML = b;
+	document.getElementById("genderInfo").innerHTML = c;
+	document.getElementById("pWordInfo").innerHTML = d;
+	document.getElementById("emailInfo").innerHTML = e;
+	document.getElementById("addressInfo").innerHTML = f;
+	document.getElementById("interestsInfo").innerHTML = g;
+	
+	return false;
+}
+
+function resetInformation() {
+	document.getElementById("birthNameInfo").innerHTML = "";
+	document.getElementById("usernameInfo").innerHTML = "";
+	document.getElementById("genderInfo").innerHTML = "";
+	document.getElementById("pWordInfo").innerHTML = "";
+	document.getElementById("emailInfo").innerHTML = "";
+	document.getElementById("addressInfo").innerHTML = "";
+	document.getElementById("interestsInfo").innerHTML = "";
+}
+	
+</script>
+
+</body>
+</html>
+
+
+
+	
